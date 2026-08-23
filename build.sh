@@ -34,7 +34,7 @@ cat > "$PKG_DIR/packageinfo.json" <<EOF
 }
 EOF
 
-( cd "$WORK/data" && tar --owner=0 --group=0 -czf "$WORK/data.tar.gz" . )
+( cd "$WORK/data" && tar --owner=0 --group=0 --mtime="UTC 2020-01-01" --sort=name -czf "$WORK/data.tar.gz" . )
 
 # --- control.tar.gz: opkg package metadata ---
 mkdir -p "$WORK/control"
@@ -47,7 +47,7 @@ Description: Pick a home-screen layout/wallpaper preset for rooted webOS 10 TVs 
 Section: misc
 Priority: optional
 EOF
-( cd "$WORK/control" && tar --owner=0 --group=0 -czf "$WORK/control.tar.gz" control )
+( cd "$WORK/control" && tar --owner=0 --group=0 --mtime="UTC 2020-01-01" --sort=name -czf "$WORK/control.tar.gz" control )
 
 # --- assemble the ipk (ar archive, debian-binary first) ---
 echo "2.0" > "$WORK/debian-binary"
