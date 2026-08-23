@@ -1,0 +1,15 @@
+{
+    "id": "com.arnolderuiter.homecustomizer",
+    "version": "0.1.0",
+    "vendor": "ArnoldDeRuiter",
+    "type": "web",
+    "main": "index.html",
+    "title": "Home Customizer",
+    "icon": "icon.png",
+    "largeIcon": "icon.png",
+    "iconColor": "#000000",
+    "resolution": "1920x1080",
+    "requiredPermissions": [
+        "identity.appinfo"
+    ]
+}

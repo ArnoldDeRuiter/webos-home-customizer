@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<home version="2.0">
+	<layout windowType="overlay" pageType="none" pageCount="1" defaultPage="0">
+		<page pageBodyType="container">
+			<item id="margin" itemWidth="3840" itemHeight="15" focusType="none"/>
+			<item id="container" hasChildren="true" itemWidth="3840" itemHeight="1727" focusType="scope">
+				<item id="globalline" itemWidth="300" itemHeight="1727" focusType="scope" autoFocus="false"/>
+				<item id="herobanner" itemWidth="3540" itemHeight="1727" focusType="scope" autoFocus="false"/>
+			</item>
+			<item id="margin" itemWidth="3840" itemHeight="30" focusType="none"/>
+			<item id="margin" itemWidth="3840" itemHeight="30" focusType="none"/>
+			<item id="appList" itemWidth="3840" itemHeight="248" focusType="scope" autoFocus="true"/>
+			<item id="margin" itemWidth="3840" itemHeight="48" focusType="none"/>
+			<item id="quickGuide" itemX="0" itemY="0" itemWidth="0" itemHeight="0" focusType="none"/>
+		</page>
+	</layout>
+</home>
