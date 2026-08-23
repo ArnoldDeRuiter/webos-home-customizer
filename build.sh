@@ -17,7 +17,7 @@ trap 'rm -rf "$WORK"' EXIT
 # --- data.tar.gz: the actual app files, laid out at their real target path ---
 DATA_DIR="$WORK/data/$INSTALL_ROOT"
 mkdir -p "$DATA_DIR"
-cp -R appinfo.json index.html icon.png css js apply-current.sh assets "$DATA_DIR/"
+cp -R appinfo.json index.html icon.png splash.png css js apply-current.sh assets "$DATA_DIR/"
 chmod +x "$DATA_DIR/apply-current.sh"
 
 # packageinfo.json is separate from appinfo.json and lives at a different

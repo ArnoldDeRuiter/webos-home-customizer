@@ -7,5 +7,6 @@
     "title": "Home Customizer",
     "icon": "icon.png",
     "largeIcon": "icon.png",
-    "iconColor": "#000000"
+    "iconColor": "#000000",
+    "splashBackground": "splash.png"
 }
