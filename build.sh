@@ -9,7 +9,7 @@ cd "$(dirname "$0")"
 
 APP_ID="com.arnolderuiter.homecustomizer"
 VERSION="$(python3 -c "import json;print(json.load(open('appinfo.json'))['version'])")"
-INSTALL_ROOT="media/developer/apps/usr/palm/applications/$APP_ID"
+INSTALL_ROOT="usr/palm/applications/$APP_ID"
 
 WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
@@ -22,9 +22,12 @@ chmod +x "$DATA_DIR/apply-current.sh"
 
 # packageinfo.json is separate from appinfo.json and lives at a different
 # path entirely -- required by the on-device installer (appinstalld), or
-# install fails with "Cannot find packageinfo.json". Confirmed by inspecting
-# already-installed homebrew apps on a real TV, not from docs alone.
-PKG_DIR="$WORK/data/media/developer/apps/usr/palm/packages/$APP_ID"
+# install fails with "Cannot find packageinfo.json". Paths inside the ipk
+# are relative to the real root (usr/palm/...), NOT media/developer/apps/...
+# -- the installer itself relocates them to the writable partition at
+# install time. Verified by dissecting real, known-working homebrew ipks
+# (webosbrew/SpaceCadetPinball, azoffshowy/AmazOff) byte-for-byte.
+PKG_DIR="$WORK/data/usr/palm/packages/$APP_ID"
 mkdir -p "$PKG_DIR"
 cat > "$PKG_DIR/packageinfo.json" <<EOF
 {
@@ -34,18 +37,22 @@ cat > "$PKG_DIR/packageinfo.json" <<EOF
 }
 EOF
 
-( cd "$WORK/data" && tar --owner=0 --group=0 --mtime="UTC 2020-01-01" --sort=name -czf "$WORK/data.tar.gz" . )
+( cd "$WORK/data" && tar --owner=0 --group=0 --mtime="UTC 2020-01-01" --sort=name -czf "$WORK/data.tar.gz" usr )
 
 # --- control.tar.gz: opkg package metadata ---
+INSTALLED_SIZE="$(du -sb "$DATA_DIR" | cut -f1)"
 mkdir -p "$WORK/control"
 cat > "$WORK/control/control" <<EOF
 Package: $APP_ID
 Version: $VERSION
-Architecture: all
-Maintainer: ArnoldDeRuiter
-Description: Pick a home-screen layout/wallpaper preset for rooted webOS 10 TVs and apply it via a bind-mount overlay (see README for how it works). Reversible, nothing on the signed system partition is touched.
 Section: misc
 Priority: optional
+Architecture: all
+Installed-Size: $INSTALLED_SIZE
+Maintainer: ArnoldDeRuiter
+Description: Pick a home-screen layout/wallpaper preset for rooted webOS 10 TVs and apply it via a bind-mount overlay (see README for how it works). Reversible, nothing on the signed system partition is touched.
+webOS-Package-Format-Version: 2
+webOS-Packager-Version: x.y.x
 EOF
 ( cd "$WORK/control" && tar --owner=0 --group=0 --mtime="UTC 2020-01-01" --sort=name -czf "$WORK/control.tar.gz" control )
 
