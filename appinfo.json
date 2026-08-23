@@ -7,9 +7,5 @@
     "title": "Home Customizer",
     "icon": "icon.png",
     "largeIcon": "icon.png",
-    "iconColor": "#000000",
-    "resolution": "1920x1080",
-    "requiredPermissions": [
-        "identity.appinfo"
-    ]
+    "iconColor": "#000000"
 }
