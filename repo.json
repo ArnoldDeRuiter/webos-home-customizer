@@ -7,16 +7,16 @@
             "iconUri": "https://raw.githubusercontent.com/ArnoldDeRuiter/webos-home-customizer/master/icon.png",
             "manifest": {
                 "id": "com.arnolderuiter.homecustomizer",
-                "version": "0.1.1",
+                "version": "0.1.2",
                 "type": "web",
                 "title": "Home Customizer",
-                "appDescription": "Pick a home-screen layout/wallpaper preset and apply it via a reversible bind-mount overlay.",
+                "appDescription": "Pick a home-screen layout/wallpaper preset and apply it via a reversible overlay filesystem mount.",
                 "iconUri": "https://raw.githubusercontent.com/ArnoldDeRuiter/webos-home-customizer/master/icon.png",
                 "sourceUrl": "https://github.com/ArnoldDeRuiter/webos-home-customizer",
                 "rootRequired": true,
-                "ipkUrl": "https://github.com/ArnoldDeRuiter/webos-home-customizer/releases/download/0.1.1/com.arnolderuiter.homecustomizer_0.1.1_all.ipk",
+                "ipkUrl": "https://github.com/ArnoldDeRuiter/webos-home-customizer/releases/download/0.1.2/com.arnolderuiter.homecustomizer_0.1.2_all.ipk",
                 "ipkHash": {
-                    "sha256": "57fa401a7da1d5f14305af0380ceaf18aea090ba2d030f4e2a9c48f7105a43fd"
+                    "sha256": "d9fcb473bf1ecda01edcd165657bc1d23d6e3843fda123c248640e1cfc4c0498"
                 }
             }
         }
