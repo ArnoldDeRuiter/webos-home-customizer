@@ -49,11 +49,16 @@ apps install through a completely different path (Homebrew Channel's own
 session for other Luna services called outside a real registered WAM-app
 context) — so this couldn't be test-installed non-interactively tonight.
 
-Practical path to actually install/test it: add this repo to Homebrew
-Channel the normal way once it's pushed (Settings → Add repository →
-`repo.json`'s raw GitHub URL) and install "Home Customizer" from the app
-list like any other homebrew app — that's the same install path every other
-app in this ecosystem uses, just not something scriptable from a bare shell.
+Practical path to actually install/test it: in Homebrew Channel, open
+**Add repository** and enter:
+
+```
+https://raw.githubusercontent.com/ArnoldDeRuiter/webos-home-customizer/master/repo.json
+```
+
+then install "Home Customizer" from the app list like any other homebrew
+app — that's the same install path every other app in this ecosystem uses,
+just not something scriptable from a bare shell.
 
 ## Building the .ipk
 
